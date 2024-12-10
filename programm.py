@@ -203,7 +203,8 @@ class AuthWindow(QWidget):
         password = self.password_input.text()
         conn = sqlite3.connect("orders.db")
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO users (username, password, role) VALUES (?, ?, ?)', (username, password, "user"))
+        cursor.execute('INSERT INTO users (username, password, role) VALUES (?, ?, ?)',    
+                       (username, password, "user"))
         conn.commit()
         conn.close()
         self.show_message("Успех", "Вы успешно зарегистрировались!")
